@@ -15,12 +15,12 @@ const storeMain = store.provideStore(rootReducer);
 
 ReactDOM.render(
     <Provider store={storeMain}>
-        <Header companyName={COMPANY_INFO.NAME}></Header>
         <Router>
+            <Header companyName={COMPANY_INFO.NAME}></Header>
             <Switch>
                 { routes.map( route => <Route  {...route}/>) }
             </Switch>
+            <Footer/>
         </Router>
-        <Footer/>
     </Provider>
     , document.getElementById("root"));

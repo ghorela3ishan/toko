@@ -16,3 +16,25 @@ export function fetchProducts(page) {
             })
     }
 }
+
+function setProductDetails(productDetails) {
+    return {
+        type: ACTIONS.SET_PRODUCT_DETAILS,
+        data: productDetails
+    }
+}
+
+export function fetchProductDetails(id) {
+    return (dispatch) => {
+        gatewayInstance.get(`/products/${id}`)
+        .then(res => {
+            dispatch(setProductDetails(res.data))
+        })
+    }
+}
+
+export function clearProducDetails() {
+    return {
+        type: ACTIONS.CLEAR_PRODUCT_DETAILS
+    }
+}

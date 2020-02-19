@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 export default class Header extends Component {
@@ -7,7 +7,7 @@ export default class Header extends Component {
         let { companyName } = this.props; 
         return(
             <header className="headerCont">
-                <p className="companyName">{companyName}</p>
+                <Link to="" className="linkCont"><p className="companyName">{companyName}</p></Link>
             </header>
         );
     }

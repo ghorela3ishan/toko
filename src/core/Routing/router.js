@@ -1,6 +1,6 @@
 import App from "../../App";
-import About from "../../components/About";
 import UnknownPath from "../../components/UnknownPath";
+import ProductDetails from "../../components/productDetails/ProductDetails";
 
 const routes = [
     {
@@ -10,8 +10,8 @@ const routes = [
     },
     {
         exact: true,
-        path: "/about",
-        component: About
+        path: "/product/:id",
+        component: ProductDetails
     },
     {
         component: UnknownPath

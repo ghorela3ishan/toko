@@ -1,7 +1,8 @@
 import { ACTIONS } from "./actionTypes";
 const initialState = {
         nextPage: 0,
-        data: []
+        data: [],
+        productDetails: {}
 }
 
 export default function productsReducer(state = initialState, action) {
@@ -13,6 +14,16 @@ export default function productsReducer(state = initialState, action) {
                 data,
                 nextPage: action.data.nextPage
             }
+        case ACTIONS.SET_PRODUCT_DETAILS: 
+        return {
+            ...state,
+            productDetails: action.data
+        }
+        case ACTIONS.CLEAR_PRODUCT_DETAILS: 
+        return {
+            ...state,
+            productDetails: {}
+        }
         default:
             return state;
     }
