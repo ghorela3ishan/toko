@@ -3,13 +3,14 @@ import "./Products.scss";
 import ProductCard from "../productCard/ProductCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { fetchProducts } from "../../services/products/actions";
+import { fetchProducts, clearProducts } from "../../services/products/actions";
 
 class Products extends Component {
     componentDidMount() {
-        this.props.fetchProducts(this.props.nextPage);
+        if(!this.props.data.length)
+        this.props.fetchProducts(0);
     }
-
+    
     handleLoadMore = () => {
         this.props.fetchProducts(this.props.nextPage);
     }
@@ -36,7 +37,7 @@ class Products extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ fetchProducts }, dispatch)
+    return bindActionCreators({ fetchProducts, clearProducts }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
