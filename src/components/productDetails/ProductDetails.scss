@@ -1,8 +1,12 @@
 .productDetailsSec {
+    display: flex;
     .imgCont {
         .productImage {
-            width: 30%;
+            width: 500px;
             height: auto;
         }
+    }
+    .infoCont {
+        margin-left: 30px;
     }
 }
