@@ -1,12 +1,21 @@
-.productDetailsSec {
-    display: flex;
-    .imgCont {
-        .productImage {
-            width: 500px;
-            height: auto;
-        }
+.detailCont {
+    padding-top: 10px;
+    .backButton {
+        text-decoration: none;
+        font-weight: 700;
+        color: #74ccf3;
+        padding-left: 25px;
     }
-    .infoCont {
-        margin-left: 30px;
+    .productDetailsSec {
+        display: flex;
+        .imgCont {
+            .productImage {
+                width: 500px;
+                height: auto;
+            }
+        }
+        .infoCont {
+            margin-left: 30px;
+        }
     }
 }

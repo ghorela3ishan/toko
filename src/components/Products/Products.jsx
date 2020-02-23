@@ -4,6 +4,7 @@ import ProductCard from "../productCard/ProductCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { fetchProducts, clearProducts } from "../../services/products/actions";
+import Loader from "../loader/Loader";
 
 class Products extends Component {
     componentDidMount() {
@@ -20,10 +21,22 @@ class Products extends Component {
 
         return(
             <div className="productsSec">
-                <div className="productsCont">
-                    {data.length ? data.map((product) => <ProductCard data={product}/> ) : "no data"}
+                {/* <div className="productsCont">
+                    {data.length ? data.map((product) => <ProductCard data={product}/> ) : <Loader/>}
                 </div>
-                <div><input type="button" value="Load More" onClick={this.handleLoadMore}/></div>
+                <div><input type="button" className="loadMore" value="Load More" onClick={this.handleLoadMore}/></div> */}
+                { data.length  ? 
+                    (
+                    <>
+                        <div className="productsCont">
+                            {data.map((product) => <ProductCard data={product}/> )}
+                        </div>
+                        <div><input type="button" className="loadMore" value="Load More" onClick={this.handleLoadMore}/></div>
+                    </>
+                    )
+                :
+                    <Loader/>               
+                }
             </div>
         );
     }

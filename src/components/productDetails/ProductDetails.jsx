@@ -4,6 +4,7 @@ import ProductCard from "../productCard/ProductCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { fetchProductDetails, clearProducDetails } from "../../services/products/actions";
+import { Link } from "react-router-dom";
 
 class ProductDetails extends Component {
     componentDidMount() {
@@ -26,15 +27,18 @@ class ProductDetails extends Component {
         let { description, id, img, name, price, rating } = this.props.details;
         let ratingHtml = this.getRatingHtml(rating)
         return(
-            <div className="productDetailsSec">
-                <div className="imgCont">
-                    <img src={img} alt="Product image" className="productImage"/>
-                </div>
-                <div className="infoCont">
-                    <p><span>Product Name: </span><span>{name}</span></p>
-                    <p><span>Rating: </span><span>{ratingHtml}</span></p>
-                    <p><span>Price: </span><span>{price}</span></p>
-                    <p><span>Description: </span>{description}<span></span></p>
+            <div className="detailCont">
+                <Link to="/" className="backButton">&larr; Back</Link>
+                <div className="productDetailsSec">
+                    <div className="imgCont">
+                        <img src={img} alt="Product image" className="productImage"/>
+                    </div>
+                    <div className="infoCont">
+                        <p><span>Product Name: </span><span>{name}</span></p>
+                        <p><span>Rating: </span><span>{ratingHtml}</span></p>
+                        <p><span>Price: </span><span>{price}</span></p>
+                        <p><span>Description: </span>{description}<span></span></p>
+                    </div>
                 </div>
             </div>
         );
